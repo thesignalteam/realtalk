@@ -1,0 +1,35 @@
+@font-face {
+    font-family: 'HK Concentrate Pro';
+    font-weight: 400;
+
+    src: url('./fonts/HKConcentratePro-Medium.woff2') format('woff2'),
+    url('./fonts/HKConcentratePro-Medium.woff') format('woff'),
+    url('./fonts/HKConcentratePro-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'HK Concentrate Pro';
+    font-weight: 700;
+
+    src: url('./fonts/HKConcentratePro-SemiBold.woff2') format('woff2'),
+    url('./fonts/HKConcentratePro-SemiBold.woff') format('woff'),
+    url('./fonts/HKConcentratePro-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Cerebri Sans';
+    font-weight: 400;
+
+    src: url('./fonts/cerebrisans-medium.woff2') format('woff2'),
+    url('./fonts/cerebrisans-medium.woff') format('woff'),
+    url('./fonts/cerebrisans-medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Cerebri Sans';
+    font-weight: 700;
+
+    src: url('./fonts/cerebrisans-bold.woff2') format('woff2'),
+    url('./fonts/cerebrisans-bold.woff') format('woff'),
+    url('./fonts/cerebrisans-bold.ttf') format('truetype');
+}

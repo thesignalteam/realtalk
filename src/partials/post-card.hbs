@@ -1,0 +1,37 @@
+{{!--
+Re-usable card for linking to posts
+--}}
+
+<!--<article class="post-card {{post_class}} {{#if feature_image}}with-image" style="background-image: url({{img_url
+        feature_image size="l"}}){{else}}no-image{{/if}}">-->
+<!--<a class="post-card-link" href="{{url}}">-->
+<!--<div class="post-card-content">-->
+<!--<h2 class="post-card-title">{{date published_at format="LT"}}</h2>-->
+<!--</div>-->
+<!--</a>-->
+<!--</article>-->
+
+<div class="ui relaxed grid post-card">
+    <div class="two wide column post-date-preview left">
+        <div class="primary">  {{date published_at format="MMM D"}}</div>
+        {{date published_at format="LT"}}
+    </div>
+
+    <a class="ten wide column post-content" href="{{url}}">
+        {{content}}
+    </a>
+
+    <div class="four wide column post-meta">
+        <a href='https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}' target="_blank">
+            <img src="/assets/svg/social-fb.svg" alt="Facebook">
+        </a>
+        <a href='https://twitter.com/share?text=&url={{url absolute="true"}}&via=cmpltst\'>
+            <img src="/assets/svg/social-twitter.svg" alt="Twitter">
+        </a>
+
+        <div class="tags">
+            {{#foreach tags}} <a class="tag" href="{{url}}">#{{name}}</a> {{/foreach}}
+        </div>
+    </div>
+</div>
+<!--<div class="four wide column"></div>-->

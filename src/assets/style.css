@@ -1,0 +1,454 @@
+*, footer {
+    font-family: "HK Concentrate Pro", sans-serif;
+}
+
+a, a:hover {
+    color: inherit;
+}
+
+body {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+img {
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.subscript {
+    vertical-align: super;
+    font-size: 70%;
+    font-weight: bold;
+}
+
+.fine-print {
+    color: #999999;
+    font-weight: bold;
+
+    margin: 20px 15%;
+}
+
+.header {
+    margin-top: 30px !important;
+}
+
+.header img {
+    height: 70px;
+    margin-top: -15px;
+}
+
+.site-main {
+    position: relative;
+}
+
+footer {
+    margin: 40px 0;
+    text-align: center;
+}
+
+.heading {
+    font-size: 24px;
+    font-family: "Cerebri Sans", Avenir, sans-serif;
+    color: #2F80ED;
+}
+
+.btn {
+    font-family: "Cerebri Sans", Avenir, sans-serif;
+    font-weight: bold;
+    font-size: 13px;
+
+    background-blend-mode: screen;
+    border-color: transparent !important;
+    box-shadow: none !important;
+
+    width: 180px;
+    height: 40px;
+
+    display: inline-block;
+    margin-right: 15px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+
+    text-transform: uppercase;
+
+    text-align: center;
+    vertical-align: center;
+    line-height: 40px;
+}
+
+.btn.stroke {
+    background-image: url("/assets/svg/squircle-stroke.svg");
+    color: #2F80ED;
+}
+
+.btn:not(.stroke) {
+    background-image: url("/assets/svg/squircle-bg-light.svg");
+    color: #2F80ED !important;
+}
+
+.btn.selected {
+    background-image: url("/assets/svg/squircle-bg.svg");
+    color: white;
+}
+
+.btn.short {
+    background-image: url("/assets/svg/squircle-bg-light-short.svg");
+    height: 30px;
+    line-height: 30px;
+    margin-top: 0;
+
+    font-weight: normal;
+    font-size: 14px;
+    text-transform: lowercase;
+}
+
+.btn.short.selected {
+    background-image: url("/assets/svg/squircle-bg-short.svg");
+}
+
+.ui.label.heading {
+    font-family: "Cerebri Sans", Avenir, sans-serif;
+    font-size: 28px;
+
+    text-transform: uppercase;
+
+    /*border: 2px solid lightgray;*/
+    border-radius: 10px;
+    background-color: #2F80ED;
+    color: white;
+
+    padding-top: 20px;
+    padding-right: 22px;
+
+    display: inline-block;
+}
+
+.ui.label.heading > .count {
+    font-size: 20px;
+    font-weight: bold;
+
+    vertical-align: top;
+}
+
+
+.left {
+    font-family: "Cerebri Sans", Avenir, sans-serif;
+    text-transform: uppercase;
+    text-align: right;
+}
+
+.primary {
+    font-weight: 700;
+    color: #2F80ED;
+}
+
+.info {
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+}
+
+.info .text {
+    font-size: 20px;
+    line-height: 140%;
+
+    margin-bottom: 20px;
+    width: 80%;
+}
+
+.segment {
+    margin-top: 0;
+    margin-bottom: 20px;
+
+    position: absolute;
+    width: 95%;
+    height: 30px;
+
+    overflow-x: hidden;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+.segment > .container {
+    padding: 0 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+
+    margin-right: 0;
+
+    position: relative;
+    width: 99%;
+    height: 100px; /* hide the scroll bar */
+
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+
+    z-index: 0;
+}
+
+.segment::after {
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    content: "";
+    background: linear-gradient(to right,
+    rgba(255, 255, 255, 1) 0,
+    rgba(255, 255, 255, 0) 30px,
+    rgba(255, 255, 255, 0) calc(98% - 30px),
+    rgba(255, 255, 255, 1) 98%
+    );
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+.segment.visible {
+    display: initial;
+}
+
+.step {
+    padding: 0 20px;
+    margin: 0 -20px;
+
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
+
+    line-height: 43px;
+
+    transition: opacity 0.2s ease-out;
+}
+
+.step > img {
+    height: 14px;
+}
+
+.step.hidden {
+    opacity: 0;
+    cursor: initial;
+}
+
+.post-card {
+    font-family: "HK Concentrate Pro", sans-serif !important;
+    font-size: 14px;
+
+    padding-bottom: 40px !important;
+}
+
+.post-date-preview .time {
+
+}
+
+.post-content hr, .post-content blockquote {
+    display: none;
+}
+
+.post-meta img {
+    margin-right: 10px;
+}
+
+.post-meta .tags {
+    margin-top: 30px;
+    line-height: 25px;
+}
+
+.post-meta .tag {
+    font-weight: bold;
+    color: #2F80ED !important;
+
+    margin-right: 10px;
+
+    width: 100% !important;
+}
+
+.question {
+    font-size: 17px;
+    margin-left: 0.8em;
+}
+
+.question::before {
+    content: "\2022";
+    color: #2F80ED;
+    font-weight: 700;
+    display: inline-block;
+    width: 1.2em;
+    margin-left: -1.2em;
+}
+
+.question > :not(.response) {
+    font-weight: bold;
+}
+
+.response {
+    border-left: solid 2px #2F80ED;
+
+    margin-bottom: 20px;
+    margin-left: -4px;
+    padding-left: 15px;
+}
+
+.response > p {
+    font-size: 17px;
+}
+
+.response .author {
+    font-family: "Cerebri Sans", Avenir, sans-serif;
+    font-weight: bold;
+    color: #2F80ED;
+
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.response .date {
+    font-family: "Cerebri Sans", Avenir, sans-serif;
+    font-weight: bold;
+    color: #999999;
+
+    text-transform: uppercase;
+}
+
+.pagination {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+
+    height: 30px;
+    margin-left: -6px;
+    margin-bottom: 50px;
+
+    font-family: "Cerebri Sans", Avenir, sans-serif;
+    font-weight: bold;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+.pagination .arrow {
+    margin: 0 20px;
+}
+
+.pagination .arrow.disabled {
+    opacity: 0.3;
+}
+
+.pagination > * {
+    display: inline;
+    line-height: 30px;
+}
+
+.tag-header {
+    margin-bottom: 60px !important;
+}
+
+.tag-header .description {
+    font-size: 16px;
+
+    margin-top: 40px;
+}
+
+.tag-header .description .label {
+    color: #2F80ED;
+    font-weight: bold;
+}
+
+.post-content-body {
+    font-family: "HK Concentrate Pro", sans-serif;
+
+    margin-top: -50px;
+    padding-bottom: 200px;
+}
+
+.post-content-body h1 {
+    margin-top: 80px;
+
+    color: #2F80ED;
+    font-family: "Cerebri Sans", Avenir, sans-serif;
+}
+
+.post-content-tags .tag {
+    background-color: #ECF4FF;
+    color: #2F80ED;
+    margin-right: 10px;
+
+    padding: 8px 10px;
+    border-radius: 7px;
+}
+
+
+.post-content-text > p {
+    font-size: 18px;
+}
+
+form {
+    margin-top: -50px;
+}
+
+form label:not(.secondary) {
+    margin-top: 30px !important;
+
+    font-family: "Cerebri Sans", Avenir, sans-serif;
+    font-weight: bold;
+}
+
+form label.secondary {
+    color: #999999 !important;
+}
+
+form .input {
+    margin-top: 20px !important;
+}
+
+form .field {
+    margin-top: 40px !important;
+}
+
+form .g-recaptcha {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+form .agreement {
+    font-weight: 500 !important;
+    line-height: 150%;
+}
+
+form .checkbox>.input:focus, form textarea:focus, form .dropdown.active, form .dropdown .menu {
+    border-color: #2F80ED !important;
+}
+
+.success, .error {
+    padding-bottom: 200px;
+}
+
+.error-container {
+    text-align: center;
+}
+
+.error-container > * {
+    display: block;
+    clear: both;
+}
+
+.error-container .icon {
+    font-size: 100px;
+    line-height: 100px;
+
+    margin-top: 100px;
+    margin-bottom: 30px;
+}
+
+.error-container .title {
+    font-family: "Cerebri Sans", Avenir, sans-serif;
+    font-size: 30px;
+    line-height: 100px;
+}
+
+.error-container .description {
+    margin-bottom: 250px;
+
+    color: #2F80ED;
+
+}

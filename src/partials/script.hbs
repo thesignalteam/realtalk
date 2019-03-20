@@ -1,0 +1,103 @@
+<script>
+    $("hr+hr").remove(); // Remove duplicated dividers
+
+    $('.post-content>p:first-child').toggleClass('question', true);
+
+    $('.post-content hr').each(function () {
+        try {
+            let blockquote = $(this).nextAll('blockquote').first();
+            let content = blockquote.prevUntil('hr');
+
+            let data = [
+                blockquote.text().substr(0, blockquote.text().indexOf(',')),
+                blockquote.text().substr(blockquote.text().indexOf(',') + 1)
+            ];
+
+            if (data === "" || data.length !== 2) {
+                return;
+            }
+
+            let container = $('<div class="response">').append(content);
+            container.insertBefore(blockquote);
+
+            let author = $('<div class="author">').text(data[0]);
+            container.prepend(author);
+
+            let post_date = new Sugar.Date(Sugar.Date.create(data[1].trim()));
+            let date = $('<div class="date">').html(
+                    post_date.format('{h}:{m} {TT}')
+                    + '<br>' +
+                    post_date.format('{Weekday}, {Mon} {date}, {year}')
+            );
+            container.append(date);
+        } catch (e) {
+            console.warn(e);
+        }
+    });
+
+    $('.tag').each(function () {
+        let $tag = $(this);
+        $tag.text($tag.text().toLowerCase().replace(" ", "-"));
+    });
+
+    $('.ui.checkbox')
+            .checkbox()
+    ;
+
+    $('.ui.dropdown')
+            .dropdown({
+                maxSelections: 10
+            })
+    ;
+
+    $('form').submit(function (event) {
+        event.preventDefault();
+        let $form = $(this);
+
+        $.ajax({
+            url: $form.attr('action'),
+            type: 'POST',
+            data: $form.serialize(),
+            success: function () {
+                $(".form").prop('hidden', true);
+                $(".success").prop('hidden', false);
+            },
+            error: function () {
+                $(".form").prop('hidden', true);
+                $(".error").prop('hidden', false);
+            }
+        });
+        return false;
+    });
+
+    let $segment_container = $(".segment .container");
+    let $segment_last = $segment_container.find('>:last-child');
+    let $step_left = $(".step.left"), $step_right = $(".step.right");
+
+    let update_position = function () {
+        let $this = $segment_container;
+        let a = $segment_last.offset().left + $segment_last.outerWidth();
+        let b = $this.offset().left + $this.innerWidth();
+
+        let offset_right = a - b;
+        let offset_left = $this.scrollLeft();
+
+        console.log(offset_left, offset_right);
+
+        $step_left.toggleClass('hidden', offset_left < 10);
+        $step_right.toggleClass('hidden', offset_right < 10);
+    };
+
+    let scroll = function (e) {
+        $segment_container.stop().animate({
+            scrollLeft: $segment_container.scrollLeft() + $segment_last.outerWidth() * e.data.direction
+        }, 300, 'swing');
+    };
+
+    $step_left.click({direction: -1}, scroll);
+    $step_right.click({direction: 1}, scroll);
+
+    $segment_container.scroll(update_position);
+    update_position();
+
+</script>

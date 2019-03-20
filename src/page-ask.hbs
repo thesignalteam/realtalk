@@ -1,0 +1,90 @@
+{{!< default}}
+
+<script>
+    var checkFormReady = function (key) {
+        if ($('#question').val().length > 0 && grecaptcha.getResponse().length > 0 && $('#checkbox').is(':checked')) {
+            $('#submit').prop("disabled", false);
+        } else {
+            $('#submit').prop("disabled", true);
+        }
+    };
+</script>
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+{{> info-card-secondary}}
+
+<div class="ui grid form">
+    <div class="ui one wide column"></div>
+    <div class="ui fourteen wide column">
+        <form class="ui form" action="/api/ask" method="post">
+            <div class="field">
+                <label>
+                    Tags
+                </label>
+                <label class="secondary">
+                    Suggest tags to help contributors comb through questions.
+                </label>
+                <select name="tags" class="ui fluid search dropdown" multiple="">
+                    {{#get 'tags' limit='all' include='count.posts' order='count.posts desc'}}
+                        {{#foreach tags}}
+                            <option value="{{slug}}">{{name}}</option>
+                        {{/foreach}}
+                    {{/get}}
+                    {{tags}}
+                    {{#foreach tags}}
+                        <option value="">{{name}}</option>
+                    {{/foreach}}
+                    <!--<option value="">State</option>-->
+                </select>
+                <!--<input class="input" id="question" type="text" name="question" onkeyup="checkFormReady()" maxlength="50"-->
+                <!--placeholder="Please keep it within 50 characters.">-->
+            </div>
+            <div class="field">
+                <label>
+                    Question
+                    <textarea class="input" id="question" type="text" class="ui textarea" name="question"
+                              onkeyup="checkFormReady()"></textarea>
+                </label>
+            </div>
+            <div class="ui checkbox">
+                <input id="checkbox" type="checkbox" tabindex="0" class="hidden" onclick="checkFormReady()">
+                <label class="agreement">By submitting a question, you are agreeing to adhere to the following rules.
+                    Each question
+                    submitted will be reviewed by RealTalk Penn contributors before it is published on the website. Any
+                    questions asked with malicious intentions or offensive language will not be answered. Questions not
+                    falling in the purview of any contributors may not be answered.
+                </label>
+            </div>
+
+            <div class="g-recaptcha" data-sitekey="6LdMNpgUAAAAAN_ucx9-89BT-it5i6xrT0ZgsBUE"
+                 data-callback="checkFormReady"></div>
+
+            <button id="submit" class="ui btn" type="submit" disabled>Submit</button>
+        </form>
+    </div>
+    <div class="ui one wide column"></div>
+</div>
+
+<div class="ui grid confirmation">
+    <div class="ui one wide column"></div>
+    <div class="ui fourteen wide column">
+        <div class="success" hidden>
+            <h1 class="heading">
+                👏 Woo-hoo!
+            </h1>
+            <p class="message">
+                Your question has been successfully submitted.
+            </p>
+        </div>
+        <div class="error" hidden>
+            <h1 class="heading">
+                🧐 Oh no
+            </h1>
+            <p class="message">
+                Something seems to be wrong.
+            </p>
+        </div>
+    </div>
+    <div class="ui one wide column"></div>
+</div>

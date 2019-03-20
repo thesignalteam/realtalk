@@ -1,0 +1,39 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+
+{{#tag}}
+    {{> info-card-secondary}}
+
+    <div class="ui relaxed grid tag-header">
+        <div class="two wide column left">
+            <div class="primary">TAG</div>
+            <!--{{plural ../pagination.total empty='posts' singular='% question' plural='% questions'}}-->
+        </div>
+        <div class="fourteen wide column">
+            <div class="ui label heading">
+                {{name}}
+                <span class="count">{{../pagination.total}}</span>
+            </div>
+
+            <br>
+            {{#if description}}
+                <div class="description">
+                    <span class="label">Description: </span>
+                    <span class="description">{{description}}</span>
+                </div>
+            {{/if}}
+        </div>
+    </div>
+{{/tag}}
+
+<div class="post-feed">
+    {{#foreach posts}}
+
+    {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
+        {{> "post-card"}}
+
+    {{/foreach}}
+</div>
+
+{{pagination}}

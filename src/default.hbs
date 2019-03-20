@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+<head>
+
+    {{!-- Document Settings --}}
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+    {{!-- Base Meta --}}
+    <meta name="HandheldFriendly" content="True"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    {{!-- Styles'n'Scripts --}}
+    <link rel="stylesheet" type="text/css" href="{{asset "built/screen.css"}}"/>
+
+    {{> "includes"}}
+
+    {{!-- This tag outputs SEO meta+structured data and other important settings --}}
+
+
+    <link rel="shortcut icon" href="/favicon.png" type="image/png"/>
+    <meta name="referrer" content="no-referrer-when-downgrade"/>
+    <link rel="alternate" type="application/rss+xml" title="RealTalk Penn" href="http://local.realtalkpenn.com/rss/"/>
+
+    {{ghost_head}}
+
+    {{#post}}
+        <meta property="og:site_name" content="RealTalk Penn"/>
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="RealTalkPenn Question"/>
+        <meta property="og:url" content="{{url}}"/>
+
+        <meta name="twitter:card" content="summary"/>
+        <meta name="twitter:title" content="RealTalk Penn Question"/>
+        <meta property="twitter:url" content="{{url}}"/>
+        <meta name="twitter:site" content="@tryghost"/>
+
+        <title>RealTalk Penn - Question</title>
+    {{/post}}
+
+    <title>{{meta_title}}</title>
+
+</head>
+<body class="{{body_class}}">
+
+<div class="site-wrapper">
+    <!--<header class="site-head">-->
+    <!--<div class="site-head-container">-->
+    <!--<nav id="swup" class="site-head-left">-->
+    <!--{{navigation}}-->
+    <!--</nav>-->
+    <!--<div class="site-head-center">-->
+        <!--{{#if @site.logo}}-->
+    <!--<a class="site-head-logo" href="{{@site.url}}"><img src="{{@site.logo}}" alt="{{@site.title}}"/></a>-->
+        <!--{{else}}-->
+    <!--<a class="site-head-logo" href="{{@site.url}}">{{@site.title}}</a>-->
+        <!--{{/if}}-->
+    <!--</div>-->
+    <!--<div class="site-head-right">-->
+    <!--<div class="social-links">-->
+        <!--{{#if @site.facebook}}-->
+    <!--<a href="{{facebook_url @site.facebook}}" title="Facebook" target="_blank" rel="noopener">Facebook</a>-->
+        <!--{{/if}}-->
+        <!--{{#if @site.twitter}}-->
+    <!--<a href="{{twitter_url @site.twitter}}" title="Twitter" target="_blank"-->
+    <!--rel="noopener">Twitter</a>-->
+        <!--{{/if}}-->
+    <!--<a href="https://feedly.com/i/subscription/feed/{{@site.url}}/rss/" title="RSS" target="_blank"-->
+    <!--rel="noopener">RSS</a>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</header>-->
+
+    <div class="ui grid post-card header">
+        <a class="two wide column" href="/">
+            <img src="/assets/svg/logo.svg" style="float: right">
+        </a>
+        <div class="two wide column">
+            <!--<img src="/assets/svg/search.svg">-->
+        </div>
+        <div class="twelve wide column">
+            {{>segment}}
+        </div>
+    </div>
+
+    <main id="site-main" class="site-main">
+
+        {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
+        {{{body}}}
+
+    </main>
+
+    {{!-- The footer at the very bottom of the screen --}}
+    <footer class="site-foot">
+        &copy; {{date format="YYYY"}} <a href="/about">The Signal + Friends</a>
+
+        <div class="fine-print">
+            Content on RealTalk Penn, unless stated otherwise, is not approved by The University of Pennsylvania or its
+            affiliated entities. Information on the website is complied by unpaid student contributors, and may not be
+            correct. Opinions by contributors may not represent those of the editorial board, the RealTalk Penn project
+            team or The Signal. Report abuse to writers@thesign.al.
+        </div>
+    </footer>
+
+</div>
+
+{{#if pagination.pages}}
+    <script>
+        // maxPages is a global variable that is needed to determine
+        // if we need to load more pages for the infinitescroll, or if
+        // we reached the last page already.
+        var maxPages = parseInt('{{pagination.pages}}');
+    </script>
+    <script src="{{asset "built/infinitescroll.js"}}"></script>
+{{/if}}
+
+{{!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. --}}
+{{{block "scripts"}}}
+
+{{!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag --}}
+{{ghost_foot}}
+
+{{> script}}
+
+</body>
+</html>
