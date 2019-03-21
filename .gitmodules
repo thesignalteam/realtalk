@@ -1,3 +1,9 @@
 [submodule "static/jquery"]
 	path = static/jquery
 	url = https://github.com/jquery/jquery.git
+[submodule "static/semantic"]
+	path = static/semantic
+	url = https://github.com/Semantic-Org/Semantic-UI.git
+[submodule "static/sugar"]
+	path = static/sugar
+	url = https://github.com/chennaione/sugar.git

@@ -13,8 +13,8 @@ app.use(bodyParser.urlencoded({extended: false}));
 // Outgoing APIs
 const captcha = new grecaptcha('6LdMNpgUAAAAAE4mxNSM7_SCxUvelFBrfTK_oWyF');
 const ghost = new admin({
-    url: 'http://host.docker.internal:4100',
-    key: '5c9138546a0ea000018cf3fd:57fc3ec4e8edeec4fd50caafed25c2adadf5661178562a39cff2c24efbbd31b2',
+    url: 'http://' + process.env.HOST_PATH + '4100',
+    key: process.env.GHOST_KEY,
     version: 'v2'
 });
 
