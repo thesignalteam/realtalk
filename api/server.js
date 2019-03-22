@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 // Outgoing APIs
 const captcha = new grecaptcha('6LdMNpgUAAAAAE4mxNSM7_SCxUvelFBrfTK_oWyF');
 const ghost = new admin({
-    url: 'http://' + process.env.HOST_PATH + ':4100',
+    url: 'https://' + process.env.HOST_PATH,
     key: process.env.GHOST_KEY,
     version: 'v2'
 });
@@ -29,9 +29,7 @@ app.get('/api', function (request, response) {
 
 const check_slug = function (question, tags, response) {
     let slug = Math.random().toString(16).substring(2, 2 + 6).toUpperCase(); // Random hex string of length 6
-
-    get_contributors(question, tags, "", response);
-
+    
     ghost.posts
         .read({slug: slug})
         .then(function () {
@@ -74,7 +72,6 @@ const create_question = function (question, tags, slug, contributors, response) 
                 }
             }
         }
-        console.log(resolved_tags);
 
         ghost.posts.add({
             title: '#' + slug + ": " + resolved_tags.join(", "),
@@ -83,8 +80,13 @@ const create_question = function (question, tags, slug, contributors, response) 
             authors: contributors,
             mobiledoc: JSON.stringify(converter.toMobiledoc('<b>' + escape(question) + '</b> <hr>'))
         }).then(function (data) {
+            console.log(data);
             response.statusCode = 200;
             response.send("Success");
+        }).catch(function (err) {
+            console.log(err);
+            response.statusCode = 401;
+            response.send("Post creation error");
         });
     }).catch(function (err) {
         console.log(err);

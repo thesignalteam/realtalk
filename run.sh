@@ -28,13 +28,19 @@ case $key in
         shift # past argument
     ;;
 
-    dev|development)
+    d|dev|development)
         cp ./configs/development/env/env ./.env
         docker-compose up
         shift # past argument
     ;;
 
-    prod|production|start)
+    p|prod|production)
+        cp ~/env ./.env
+        docker-compose up
+        shift # past argument
+    ;;
+
+    d|daemon)
         cp ~/env ./.env
         docker-compose up -d
         shift # past argument
@@ -42,6 +48,13 @@ case $key in
 
     stop|down)
         docker-compose down
+        shift # past argument
+    ;;
+
+    r|restart)
+        docker-compose down
+        cp ~/env ./.env
+        docker-compose up -d
         shift # past argument
     ;;
 esac
