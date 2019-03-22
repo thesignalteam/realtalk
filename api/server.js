@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 // Outgoing APIs
 const captcha = new grecaptcha('6LdMNpgUAAAAAE4mxNSM7_SCxUvelFBrfTK_oWyF');
 const ghost = new admin({
-    url: 'http://' + process.env.HOST_PATH + '4100',
+    url: 'http://' + process.env.HOST_PATH + ':4100',
     key: process.env.GHOST_KEY,
     version: 'v2'
 });
