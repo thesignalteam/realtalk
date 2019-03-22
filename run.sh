@@ -22,6 +22,8 @@ case $key in
         cp ../configs/development/env/env ../.env
         cd ..
 
+        cd api && npm install && cd ..
+
         docker-compose pull
         shift # past argument
     ;;
@@ -32,9 +34,14 @@ case $key in
         shift # past argument
     ;;
 
-    prod|production)
+    prod|production|start)
         cp ~/env ./.env
         docker-compose up -d
+        shift # past argument
+    ;;
+
+    stop|down)
+        docker-compose down
         shift # past argument
     ;;
 esac
