@@ -38,12 +38,12 @@
             </div>
         {{/if}}
 
-        <div class="post-content-body">
+        <div class="">
             <div class="ui grid post-card">
                 <div class="ui two wide column post-date-preview left">
                     <div class="primary">Question</div>
                 </div>
-                <div class="ui twelve wide column post-content-text">
+                <div class="ui twelve wide column post-content-text post-content-data">
                     {{content}}
                 </div>
                 <div class="ui one wide column"></div>
@@ -74,7 +74,7 @@
             </section>
         {{/if}}
 
-        <footer class="post-content-footer">
+        <footer class="post-content-footer" style="height: 50px;">
 
             {{!-- There are two options for how we display the byline/author-info.
         If the post has more than one author, we load a specific template

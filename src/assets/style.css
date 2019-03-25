@@ -303,6 +303,11 @@ p {
     display: none;
 }
 
+/* Tags for ull post page */
+.post-content-tags {
+    margin-top: 30px !important;
+}
+
 .post-meta img {
     margin-right: 10px;
 }
