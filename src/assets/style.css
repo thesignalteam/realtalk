@@ -438,6 +438,8 @@ p {
 
     padding: 8px 10px;
     border-radius: 7px;
+    display: inline-block;
+    margin-bottom: 5px;
 }
 
 
