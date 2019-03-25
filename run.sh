@@ -6,12 +6,13 @@ key="$1"
 
 case $key in
     setup) #|--setup|-s
+        git stash
         git pull --recurse-submodules
         cd static && npm install
 
         cd ./prebuilt
         for f in * ; do
-          yes | cp -r "$f" "../$f/dist/"
+          cp -r "$f/*" "../$f/dist/"
         done
         cd ..
 
