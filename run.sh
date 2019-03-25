@@ -31,13 +31,13 @@ case $key in
         shift # past argument
     ;;
 
-    p|prod|production)
+    p-d|prod-debug|production-debug)
         cp ~/env ./.env
         docker-compose up
         shift # past argument
     ;;
 
-    d|daemon)
+    p|prod|production)
         cp ~/env ./.env
         docker-compose up -d
         shift # past argument
