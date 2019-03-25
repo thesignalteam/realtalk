@@ -12,7 +12,7 @@ case $key in
 
         cd ./prebuilt
         for f in * ; do
-          cp -r "$f/*" "../$f/dist/"
+          cp -r "./$f/*" "../$f/dist/"
         done
         cd ..
 
