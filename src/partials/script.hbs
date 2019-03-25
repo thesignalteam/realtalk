@@ -1,7 +1,12 @@
 <script>
     $("hr+hr").remove(); // Remove duplicated dividers
 
-    $('.post-content>p:first-child').toggleClass('question', true);
+    let content = $('.post-content>hr').first().prevAll();
+    let container = $('<div class="question">').append(content.get().reverse());
+    $('.post-content').prepend(container);
+
+    // $('.post-content>p:first-child').toggleClass('question', true);
+    // $('.post-content>p:first-child').nextUntil('hr').toggleClass('question', true);
 
     $('.post-content hr').each(function () {
         try {
@@ -60,11 +65,16 @@
             data: $form.serialize(),
             success: function () {
                 $(".form").prop('hidden', true);
+
                 $(".success").prop('hidden', false);
+                $(".heading").text("👏 Woo-hoo");
             },
-            error: function () {
+            error: function (res) {
                 $(".form").prop('hidden', true);
+
                 $(".error").prop('hidden', false);
+                $(".heading").text("🧐 Oh no");
+                $(".message").text("Something seems to be wrong. " + res)
             }
         });
         return false;
@@ -98,6 +108,7 @@
     $step_right.click({direction: 1}, scroll);
 
     $segment_container.scroll(update_position);
+    $(window).resize(update_position);
     update_position();
 
 </script>

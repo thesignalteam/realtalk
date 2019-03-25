@@ -6,4 +6,4 @@
 	url = https://github.com/Semantic-Org/Semantic-UI.git
 [submodule "static/sugar"]
 	path = static/sugar
-	url = https://github.com/chennaione/sugar.git
+	url = https://github.com/andrewplummer/Sugar.git

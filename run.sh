@@ -10,19 +10,16 @@ case $key in
         cd static && npm install
 
         cd ./prebuilt
-        mkdir ../jquery/dist/
-        mkdir ../semantic/dist/
-        mkdir ../sugar/dist/
-        cp jquery.min.js ../jquery/dist/
-        cp semantic.min.js ../semantic/dist/
-        cp semantic.min.css ../semantic/dist/
-        cp sugar.min.js ../sugar/dist/
+        for f in * ; do
+          yes | cp -r "$f" "../$f/dist/"
+        done
         cd ..
 
         cp ../configs/development/env/env ../.env
         cd ..
 
-        cd api && npm install && cd ..
+        cd api && npm install
+        cd ..
 
         docker-compose pull
         shift # past argument

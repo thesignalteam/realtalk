@@ -1,0 +1,27 @@
+{{!< default}}
+
+{{> info-card-secondary}}
+
+<div class="ui relaxed grid contributors">
+    <div class="ui one wide column"></div>
+    <div class="ui fourteen wide column">
+        {{#post}}
+            <h1 class="heading">Contributors</h1>
+            {{content}}
+
+            <div class="ui very relaxed stackable two column grid">
+                {{#foreach authors}}
+                    <div class="column contributor">
+                        <img src="{{profile_image}}">
+                        <div class="content">
+                            <div class="name">{{name}}</div>
+                            <div class="tagline">{{location}}</div>
+                            <div class="bio">{{bio}}</div>
+                        </div>
+                    </div>
+                {{/foreach}}
+            </div>
+        {{/post}}
+    </div>
+    <div class="ui one wide column"></div>
+</div>

@@ -1,15 +1,15 @@
 {
     "name": "thesignal-realtalk",
-    "description": "A starter theme for Ghost.",
-    "demo": "https://starter.ghost.io",
-    "version": "1.0.0",
+    "description": "RealTalk Penn's ",
+    "demo": "https://opensource.realtalkpenn.com",
+    "version": "0.1.0",
     "engines": {
         "ghost": ">=2.0.0",
         "ghost-api": "v2"
     },
     "license": "MIT",
     "screenshots": {
-        "desktop": "assets/screenshot-desktop.jpg"
+        "desktop": "assets/screenshot.png"
     },
     "scripts": {
         "dev": "gulp",
@@ -20,8 +20,8 @@
         "ship": "STATUS=$(git status --porcelain); echo $STATUS; if [ -z \"$STATUS\" ]; then yarn version && git push --follow-tags; fi"
     },
     "author": {
-        "name": "Ghost Foundation",
-        "email": "hello@ghost.org",
+        "name": "RealTalk Penn",
+        "email": "admins@ghost.org",
         "url": "https://ghost.org"
     },
     "gpm": {
@@ -59,7 +59,7 @@
         "postcss-easy-import": "3.0.0"
     },
     "config": {
-        "posts_per_page": 2,
+        "posts_per_page": 10,
         "image_sizes": {
             "xxs": {
                 "width": 30

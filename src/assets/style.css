@@ -1,3 +1,21 @@
+/* Font Awesome */
+
+@font-face {
+    font-family: "Font Awesome 5 Pro";
+    font-style: normal;
+    font-weight: 300;
+    font-display: auto;
+    src: url(./fonts/fa-light-300.eot);
+    src: url(./fonts/fa-light-300.eot?#iefix) format("embedded-opentype"), url(./fonts/fa-light-300.woff2) format("woff2"), url(./fonts/fa-light-300.woff) format("woff"), url(./fonts/fa-light-300.ttf) format("truetype"), url(./fonts/fa-light-300.svg#fontawesome) format("svg")
+}
+
+.fal {
+    font-family: "Font Awesome 5 Pro";
+    font-weight: 300
+}
+
+/* Global */
+
 *, footer {
     font-family: "HK Concentrate Pro", sans-serif;
 }
@@ -47,16 +65,46 @@ footer {
     text-align: center;
 }
 
-.heading {
-    font-size: 24px;
+.heading, h1 {
+    font-size: 30px;
+    font-weight: bold;
     font-family: "Cerebri Sans", Avenir, sans-serif;
+
+    margin-bottom: 3em;
+    /*margin-left: calc(-35px + 3%)*/
+}
+
+h1 {
+    margin-top: 3em;
+    margin-bottom: 1.2em;
+}
+
+h1::before, .heading::before {
     color: #2F80ED;
+
+    display: block;
+    margin-bottom: 20px;
+
+    font-family: "Font Awesome 5 Pro";
+    font-weight: 200;
+
+    font-size: 28px !important;
+}
+
+h3 {
+    margin-top: 2em;
+    color: #2F80ED;
+    font-family: "Cerebri Sans", Avenir, sans-serif;
+}
+
+p {
+    margin-bottom: 25px;
 }
 
 .btn {
     font-family: "Cerebri Sans", Avenir, sans-serif;
     font-weight: bold;
-    font-size: 13px;
+    font-size: 12.5px;
 
     background-blend-mode: screen;
     border-color: transparent !important;
@@ -146,6 +194,15 @@ footer {
 .info {
     margin-top: 20px !important;
     margin-bottom: 20px !important;
+}
+
+.info.secondary {
+    margin-bottom: -20px !important;
+}
+
+.info .back {
+    margin-top: 10px;
+    float: right;
 }
 
 .info .text {
@@ -267,15 +324,16 @@ footer {
 .question {
     font-size: 17px;
     margin-left: 0.8em;
+
+    padding-bottom: 1.5em;
 }
 
 .question::before {
     content: "\2022";
     color: #2F80ED;
-    font-weight: 700;
-    display: inline-block;
-    width: 1.2em;
+    float: left;
     margin-left: -1.2em;
+    line-height: 24px;
 }
 
 .question > :not(.response) {
@@ -382,8 +440,9 @@ footer {
     font-size: 18px;
 }
 
-form {
-    margin-top: -50px;
+.ask h1:nth-of-type(1)::before {
+    /*About*/
+    content: "\f7e8";
 }
 
 form label:not(.secondary) {
@@ -415,12 +474,12 @@ form .agreement {
     line-height: 150%;
 }
 
-form .checkbox>.input:focus, form textarea:focus, form .dropdown.active, form .dropdown .menu {
+form .checkbox > .input:focus, form textarea:focus, form .dropdown.active, form .dropdown .menu {
     border-color: #2F80ED !important;
 }
 
-.success, .error {
-    padding-bottom: 200px;
+.confirmation .message {
+    margin-top: -3em;
 }
 
 .error-container {
@@ -446,9 +505,98 @@ form .checkbox>.input:focus, form textarea:focus, form .dropdown.active, form .d
     line-height: 100px;
 }
 
-.error-container .description {
+.error-container .description, .success .message, .error .message {
     margin-bottom: 250px;
 
+    font-size: 18px;
     color: #2F80ED;
+}
 
+.contributors a, .about a {
+    text-decoration: underline;
+    text-decoration-color: #2F80ED;
+}
+
+.contributors {
+    margin-top: 30px;
+    margin-bottom: 150px !important;
+}
+
+.contributors h1::before {
+    content: "\f6d4";
+    font-size: 22px;
+}
+
+.contributors p {
+    font-size: 18px;
+    line-height: 150%;
+
+    margin-top: -2em;
+    margin-bottom: 6em;
+}
+
+.contributor {
+    position: relative;
+
+    height: 200px;
+}
+
+.contributor > img {
+    position: absolute;
+    left: 5%;
+    width: 80px;
+
+    border-radius: 100%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.10);
+}
+
+.contributor > .content {
+    position: absolute;
+    left: calc(5% + 80px + 8%);
+    right: 10%;
+}
+
+.contributor .name {
+    margin-top: 10px;
+
+    font-family: "Cerebri Sans", Avenir, sans-serif;
+    font-size: 26px;
+}
+
+.contributor .tagline {
+    margin-top: 15px;
+
+    font-family: "Cerebri Sans", Avenir, sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+
+    text-transform: uppercase;
+
+    color: #2F80ED;
+}
+
+.contributor .bio {
+    margin-top: 25px;
+
+    font-size: 18px;
+    line-height: 140%;
+}
+
+.about {
+    margin-bottom: 150px !important;
+}
+
+.about h1:nth-of-type(1)::before {
+    /*About*/
+    content: "\f757";
+}
+
+.about h1:nth-of-type(2)::before {
+    /*Development*/
+    content: "\f6b2";
+}
+
+.about p {
+    font-size: 18px;
+    line-height: 150%;
 }

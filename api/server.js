@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 // Outgoing APIs
 const captcha = new grecaptcha('6LdMNpgUAAAAAE4mxNSM7_SCxUvelFBrfTK_oWyF');
 const ghost = new admin({
-    url: 'https://' + process.env.HOST_PATH,
+    url: 'http://' + process.env.HOST_PATH + ":4100",
     key: process.env.GHOST_KEY,
     version: 'v2'
 });
@@ -22,9 +22,7 @@ const ghost = new admin({
 app.get('/', (request, response) => response.send('Hello World'));
 
 app.get('/api', function (request, response) {
-    response.send(
-
-    );
+    response.send("Oh look! You found the API.");
 });
 
 const check_slug = function (question, tags, response) {
@@ -78,7 +76,7 @@ const create_question = function (question, tags, slug, contributors, response) 
             slug: slug,
             tags: resolved_tags,
             authors: contributors,
-            mobiledoc: JSON.stringify(converter.toMobiledoc('<b>' + escape(question) + '</b> <hr>'))
+            mobiledoc: JSON.stringify(converter.toMobiledoc('<b>' + escape(question).split("\r\n").join("<br>") + '</b> <hr>'))
         }).then(function (data) {
             console.log(data);
             response.statusCode = 200;

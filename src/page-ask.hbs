@@ -14,9 +14,11 @@
 
 {{> info-card-secondary}}
 
-<div class="ui grid form">
+<div class="ui grid ask">
     <div class="ui one wide column"></div>
     <div class="ui fourteen wide column">
+        <h1 class="heading">New Question</h1>
+
         <form class="ui form" action="/api/ask" method="post">
             <div class="field">
                 <label>
@@ -70,17 +72,11 @@
     <div class="ui one wide column"></div>
     <div class="ui fourteen wide column">
         <div class="success" hidden>
-            <h1 class="heading">
-                👏 Woo-hoo!
-            </h1>
             <p class="message">
                 Your question has been successfully submitted.
             </p>
         </div>
         <div class="error" hidden>
-            <h1 class="heading">
-                🧐 Oh no
-            </h1>
             <p class="message">
                 Something seems to be wrong.
             </p>

@@ -6,6 +6,7 @@ services:
     container_name: thesignal-realtalk
     volumes:
       - ./configs/${MODE}/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ${DATA_PATH}/logs/nginx/:/var/log/nginx/
     environment:
       - HOST_PATH=${HOST_PATH}
     ports:
@@ -37,7 +38,7 @@ services:
     depends_on:
       - mysql
     environment:
-      NODE_ENV: development
+      NODE_ENV: ${MODE}
       database__client: mysql
       database__connection__host: mysql
       database__connection__user: ${MYSQL_USER}
