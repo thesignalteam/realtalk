@@ -1,4 +1,26 @@
+
 <script>
+    var getUrlParameter = function getUrlParameter(sParam) {
+        var sPageURL = window.location.search.substring(1),
+                sURLVariables = sPageURL.split('&'),
+                sParameterName,
+                i;
+
+        for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+
+            if (sParameterName[0] === sParam) {
+                return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+            }
+        }
+    };
+
+    if (getUrlParameter("link") === "preview") {
+        $(".error-container-404 .icon").text("🥥");
+        $(".error-container-404 .title").text("We're working on it");
+        $(".error-container-404 .description").text("Bookmark this page and come back later.");
+    }
+
     $("hr+hr").remove(); // Remove duplicated dividers
 
     let content = $('.post-content-data>hr').first().prevAll();

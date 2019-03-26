@@ -11,7 +11,7 @@ const app = express();
 app.use(bodyParser.urlencoded({extended: false}));
 
 // Outgoing APIs
-const captcha = new grecaptcha('6LdMNpgUAAAAAE4mxNSM7_SCxUvelFBrfTK_oWyF');
+const captcha = new grecaptcha(process.env.RECAPTCHA_KEY);
 const ghost = new admin({
     url: 'http://' + process.env.HOST_PATH + ":4100",
     key: process.env.GHOST_KEY,
@@ -27,7 +27,7 @@ app.get('/api', function (request, response) {
 
 const check_slug = function (question, tags, response) {
     let slug = Math.random().toString(16).substring(2, 2 + 6).toUpperCase(); // Random hex string of length 6
-    
+
     ghost.posts
         .read({slug: slug})
         .then(function () {
@@ -80,7 +80,7 @@ const create_question = function (question, tags, slug, contributors, response) 
         }).then(function (data) {
             console.log(data);
             response.statusCode = 200;
-            response.send("Success");
+            response.send(slug.toLowerCase());
         }).catch(function (err) {
             console.log(err);
             response.statusCode = 401;
@@ -96,15 +96,19 @@ const create_question = function (question, tags, slug, contributors, response) 
 app.post('/api/ask', function (request, response) {
     console.log(request.body);
 
-    captcha.verify(request.body['g-recaptcha-response']).then((accepted) => {
-        return check_slug(request.body.question, request.body.tags, response);
-    }).catch((err) => {
-        // Request failed.
-        response.statusCode = 401;
-        response.send("Recaptcha failed");
+    if (process.env.RECAPTCHA === "on") {
+        captcha.verify(request.body['g-recaptcha-response']).then((accepted) => {
+            return check_slug(request.body.question, request.body.tags, response);
+        }).catch((err) => {
+            // Request failed.
+            response.statusCode = 401;
+            response.send("Recaptcha failed");
 
-        console.log(err);
-    });
+            console.log(err);
+        });
+    } else {
+        return check_slug(request.body.question, request.body.tags, response);
+    }
 });
 
 // set the server to listen on port 3000
