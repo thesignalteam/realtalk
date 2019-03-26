@@ -613,3 +613,7 @@ form .checkbox > .input:focus, form textarea:focus, form .dropdown.active, form 
     margin-right: 35px;
   }
 }
+
+.logo {
+  min-width: 100px;
+}
