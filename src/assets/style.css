@@ -607,3 +607,9 @@ form .checkbox > .input:focus, form textarea:focus, form .dropdown.active, form 
     font-size: 18px;
     line-height: 150%;
 }
+
+@media only screen and (max-width: 630px) {
+  .questions {
+    margin-right: 35px;
+  }
+}
