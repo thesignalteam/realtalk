@@ -44,7 +44,10 @@ img {
     color: #999999;
     font-weight: bold;
 
-    margin: 20px 15%;
+    font-size: 12px;
+    line-height: 130%;
+
+    margin: 20px 10%;
 }
 
 .header {

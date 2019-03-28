@@ -45,37 +45,9 @@
   <!-- <img src="/assets/svg/logo.svg" style="float:right; position: absolute; left: 7%; margin-top: 15px;" -->
 
 <div class="site-wrapper">
-    <!--<header class="site-head">-->
-    <!--<div class="site-head-container">-->
-    <!--<nav id="swup" class="site-head-left">-->
-    <!--{{navigation}}-->
-    <!--</nav>-->
-    <!--<div class="site-head-center">-->
-        <!--{{#if @site.logo}}-->
-    <!--<a class="site-head-logo" href="{{@site.url}}"><img src="{{@site.logo}}" alt="{{@site.title}}"/></a>-->
-        <!--{{else}}-->
-    <!--<a class="site-head-logo" href="{{@site.url}}">{{@site.title}}</a>-->
-        <!--{{/if}}-->
-    <!--</div>-->
-    <!--<div class="site-head-right">-->
-    <!--<div class="social-links">-->
-        <!--{{#if @site.facebook}}-->
-    <!--<a href="{{facebook_url @site.facebook}}" title="Facebook" target="_blank" rel="noopener">Facebook</a>-->
-        <!--{{/if}}-->
-        <!--{{#if @site.twitter}}-->
-    <!--<a href="{{twitter_url @site.twitter}}" title="Twitter" target="_blank"-->
-    <!--rel="noopener">Twitter</a>-->
-        <!--{{/if}}-->
-    <!--<a href="https://feedly.com/i/subscription/feed/{{@site.url}}/rss/" title="RSS" target="_blank"-->
-    <!--rel="noopener">RSS</a>-->
-    <!--</div>-->
-    <!--</div>-->
-    <!--</div>-->
-    <!--</header>-->
-
     <div class="ui grid post-card header">
         <a class="two wide column logo" href="/">
-            <img src="/assets/svg/logo.svg" style="float: right">
+            <img src="{{@site.logo}}" style="float: right">
         </a>
         <div class="one wide column">
             <!--<img src="/assets/svg/search.svg">-->
@@ -100,7 +72,7 @@
             Content on RealTalk Penn, unless stated otherwise, is not approved by The University of Pennsylvania or its
             affiliated entities. Information on the website is complied by unpaid student contributors, and may not be
             correct. Opinions by contributors may not represent those of the editorial board, the RealTalk Penn project
-            team or The Signal. Report abuse to writers@thesign.al.
+            team or The Signal. Report abuse to editors@realtalkpenn.com.
         </div>
     </footer>
 

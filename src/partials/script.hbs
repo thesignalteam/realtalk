@@ -85,11 +85,13 @@
             url: $form.attr('action'),
             type: 'POST',
             data: $form.serialize(),
-            success: function () {
+            success: function (res) {
                 $(".form").prop('hidden', true);
 
                 $(".success").prop('hidden', false);
                 $(".heading").text("👏 Woo-hoo");
+                $("#slug").text(res);
+                $("#link").attr("href", $("#link").text());
             },
             error: function (res) {
                 $(".form").prop('hidden', true);

@@ -44,6 +44,11 @@ services:
       database__connection__user: ${MYSQL_USER}
       database__connection__password: ${MYSQL_PASSWORD}
       database__connection__database: ${MYSQL_DATABASE}
+      mail__transport: ${GHOST_mail__transport}
+      mail__from: ${GHOST_mail__from}
+      mail__options__service: ${GHOST_mail__options__service}
+      mail__options__auth__user: ${GHOST_mail__options__auth__user}
+      mail__options__auth__pass: ${GHOST_mail__options__auth__pass}
       url: ${WEB_PATH}
     entrypoint: ["wait.sh", "mysql", "--", "docker-entrypoint.sh"]
     command: ["node", "current/index.js"]

@@ -8,7 +8,6 @@ MYSQL_USER=blog-user
 MYSQL_PASSWORD=supersecret
 
 RECAPTCHA=off
-RECAPTCHA_KEY=dummy
 
 GHOST_KEY=5c9138546a0ea000018cf3fd:57fc3ec4e8edeec4fd50caafed25c2adadf5661178562a39cff2c24efbbd31b2
 
