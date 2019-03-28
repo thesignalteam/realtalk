@@ -11,10 +11,14 @@ Re-usable card for linking to posts
 <!--</a>-->
 <!--</article>-->
 
-<div class="ui relaxed grid post-card">
-    <div class="two wide column post-date-preview left">
+<div class="ui relaxed stackable grid post-card">
+    <div class="two wide computer tablet only column post-date-preview left">
         <div class="primary">  {{date published_at format="MMM D"}}</div>
-        {{date published_at format="LT"}}
+        <div class="secondary"> {{date published_at format="LT"}} </div>
+    </div>
+    <div class="two wide mobile only column post-date-preview date left">
+        <span class="primary">  {{date published_at format="MMM D"}}</span>
+        <span class="secondary"> {{date published_at format="LT"}} </span>
     </div>
 
     <a class="ten wide column post-content post-content-data" href="{{url}}">

@@ -25,8 +25,16 @@ a, a:hover {
 }
 
 body {
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 8%;
+    padding-right: 8%;
+}
+
+@media only screen and (max-width: calc(480px)) {
+    body {
+        zoom: 0.85;
+        -moz-transform: scale(0.85);
+        -moz-transform-origin: 0 0;
+    }
 }
 
 img {
@@ -52,6 +60,13 @@ img {
 
 .header {
     margin-top: 30px !important;
+}
+
+@media only screen and (max-width: 767px) {
+    .ui.stackable.grid.header {
+        margin-left: -5% !important;
+        margin-right: -5% !important;
+    }
 }
 
 .header img {
@@ -182,11 +197,16 @@ p {
     vertical-align: top;
 }
 
-
 .left {
     font-family: "Cerebri Sans", Avenir, sans-serif;
     text-transform: uppercase;
     text-align: right;
+}
+
+@media only screen and (max-width: calc(768px)) {
+    .left {
+        text-align: left;
+    }
 }
 
 .primary {
@@ -203,9 +223,8 @@ p {
     margin-bottom: -20px !important;
 }
 
-.info .back {
+.info .back > img {
     margin-top: 10px;
-    float: right;
 }
 
 .info .text {
@@ -213,7 +232,6 @@ p {
     line-height: 140%;
 
     margin-bottom: 20px;
-    width: 80%;
 }
 
 .segment {
@@ -557,7 +575,7 @@ form .checkbox > .input:focus, form textarea:focus, form .dropdown.active, form 
     width: 80px;
 
     border-radius: 100%;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.10);
+    box-shadow: 3px 5px 12px rgba(0, 0, 0, 0.2);
 }
 
 .contributor > .content {
@@ -570,15 +588,15 @@ form .checkbox > .input:focus, form textarea:focus, form .dropdown.active, form 
     margin-top: 10px;
 
     font-family: "Cerebri Sans", Avenir, sans-serif;
-    font-size: 26px;
+    font-size: 24px;
 }
 
 .contributor .tagline {
-    margin-top: 15px;
+    margin-top: 12px;
 
     font-family: "Cerebri Sans", Avenir, sans-serif;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 12px;
 
     text-transform: uppercase;
 
@@ -586,9 +604,9 @@ form .checkbox > .input:focus, form textarea:focus, form .dropdown.active, form 
 }
 
 .contributor .bio {
-    margin-top: 25px;
+    margin-top: 20px;
 
-    font-size: 18px;
+    font-size: 16px;
     line-height: 140%;
 }
 
@@ -612,11 +630,11 @@ form .checkbox > .input:focus, form textarea:focus, form .dropdown.active, form 
 }
 
 @media only screen and (max-width: 630px) {
-  .questions {
-    margin-right: 35px;
-  }
+    .questions {
+        margin-right: 35px;
+    }
 }
 
 .logo {
-  min-width: 100px;
+    min-width: 100px;
 }

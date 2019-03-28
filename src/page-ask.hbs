@@ -14,9 +14,8 @@
 
 {{> info-card-secondary}}
 
-<div class="ui grid ask">
-    <div class="ui one wide column"></div>
-    <div class="ui fourteen wide column">
+<div class="ui centered grid ask">
+    <div class="ui fourteen wide computer fourteen wide tablet fifteen wide mobile column">
         <h1 class="heading">New Question</h1>
 
         <form class="ui form" action="/api/ask" method="post">
@@ -65,12 +64,10 @@
             <button id="submit" class="ui btn" type="submit" disabled>Submit</button>
         </form>
     </div>
-    <div class="ui one wide column"></div>
 </div>
 
-<div class="ui grid confirmation">
-    <div class="ui one wide column"></div>
-    <div class="ui fourteen wide column">
+<div class="ui stackable centered grid confirmation">
+    <div class="ui fourteen wide computer fourteen wide tablet fifteen wide mobile column">
         <div class="success" hidden>
             <p class="message">
                 Your question has been successfully submitted.
@@ -84,5 +81,4 @@
             </p>
         </div>
     </div>
-    <div class="ui one wide column"></div>
 </div>

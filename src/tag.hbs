@@ -5,11 +5,14 @@ into the {body} of the default.hbs template --}}
 {{#tag}}
     {{> info-card-secondary}}
 
-    <div class="ui relaxed grid tag-header">
-        <div class="two wide column left">
-            <div class="primary">TAG</div>
-            <!--{{plural ../pagination.total empty='posts' singular='% question' plural='% questions'}}-->
+    <div class="ui stackable relaxed grid tag-header">
+        <div class="two wide computer tablet only column date">
+            <div class="ui primary" style="float: right">TAG</div>
         </div>
+        <div class="two wide mobile only column date">
+            <div class="ui primary" style="float: left">TAG</div>
+        </div>
+
         <div class="fourteen wide column">
             <div class="ui label heading">
                 {{name}}

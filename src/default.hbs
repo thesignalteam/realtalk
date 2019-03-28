@@ -8,7 +8,10 @@
 
     {{!-- Base Meta --}}
     <meta name="HandheldFriendly" content="True"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta
+            name='viewport'
+            content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'
+    />
 
     {{!-- Styles'n'Scripts --}}
     <link rel="stylesheet" type="text/css" href="{{asset "built/screen.css"}}"/>
@@ -45,14 +48,21 @@
   <!-- <img src="/assets/svg/logo.svg" style="float:right; position: absolute; left: 7%; margin-top: 15px;" -->
 
 <div class="site-wrapper">
-    <div class="ui grid post-card header">
-        <a class="two wide column logo" href="/">
-            <img src="{{@site.logo}}" style="float: right">
+    <div class="ui stackable grid post-card header">
+        <a class="two wide computer tablet only column logo" href="/">
+            <!--Left floated for large screens-->
+            <img class="ui right floated image" src="{{@site.logo}}">
         </a>
-        <div class="one wide column">
-            <!--<img src="/assets/svg/search.svg">-->
-        </div>
-        <div class="thirteen wide column">
+        <a class="two wide mobile only column logo" href="/">
+            <!--centered for small screens-->
+            <img class="ui centered image" src="{{@site.logo}}">
+        </a>
+
+
+        <!--<div class="one wide column">-->
+            <!--&lt;!&ndash;<img src="/assets/svg/search.svg">&ndash;&gt;-->
+        <!--</div>-->
+        <div class="thirteen wide right floated column">
             {{>segment}}
         </div>
     </div>
