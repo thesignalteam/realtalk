@@ -630,9 +630,15 @@ form .checkbox > .input:focus, form textarea:focus, form .dropdown.active, form 
 }
 
 @media only screen and (max-width: 630px) {
-    .questions {
-        margin-right: 35px;
-    }
+  .questions {
+    margin-right: 35px;
+  }
+
+  .info {
+    margin-top: 0!important;
+    margin-bottom: 0!important;
+    padding-bottom: 20px !important;
+  }
 }
 
 .logo {
