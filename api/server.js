@@ -11,9 +11,12 @@ const app = express();
 app.use(bodyParser.urlencoded({extended: false}));
 
 // Outgoing APIs
-const captcha = new grecaptcha(process.env.RECAPTCHA_KEY);
+const captcha = process.env.RECAPTCHA === "on" ? new grecaptcha(process.env.RECAPTCHA_KEY) : undefined;
+
+console.log(process.env.GHOST_API_PATH);
+
 const ghost = new admin({
-    url: 'http://' + process.env.HOST_PATH + ":4100",
+    url: process.env.GHOST_API_PATH,
     key: process.env.GHOST_KEY,
     version: 'v2'
 });
@@ -71,6 +74,14 @@ const create_question = function (question, tags, slug, contributors, response) 
             }
         }
 
+        console.log({
+            title: '#' + slug + ": " + resolved_tags.join(", "),
+            slug: slug,
+            tags: resolved_tags,
+            authors: contributors,
+            mobiledoc: JSON.stringify(converter.toMobiledoc('<b>' + escape(question).split("\r\n").join("<br>") + '</b> <hr>'))
+        });
+
         ghost.posts.add({
             title: '#' + slug + ": " + resolved_tags.join(", "),
             slug: slug,
@@ -79,6 +90,7 @@ const create_question = function (question, tags, slug, contributors, response) 
             mobiledoc: JSON.stringify(converter.toMobiledoc('<b>' + escape(question).split("\r\n").join("<br>") + '</b> <hr>'))
         }).then(function (data) {
             console.log("Post created: " + slug);
+            console.log(data);
             response.statusCode = 200;
             response.send(slug.toLowerCase());
         }).catch(function (err) {
@@ -96,7 +108,7 @@ const create_question = function (question, tags, slug, contributors, response) 
 app.post('/api/ask', function (request, response) {
     console.log(request.body);
 
-    if (process.env.RECAPTCHA === "on") {
+    if (captcha) {
         captcha.verify(request.body['g-recaptcha-response']).then((accepted) => {
             return check_slug(request.body.question, request.body.tags, response);
         }).catch((err) => {

@@ -61,6 +61,7 @@ services:
       - NODE_ENV=production
       - HOST_PATH=${HOST_PATH}
       - GHOST_KEY=${GHOST_KEY}
+      - GHOST_API_PATH=${GHOST_API_PATH}
       - RECAPTCHA=${RECAPTCHA}
       - RECAPTCHA_KEY=${RECAPTCHA_KEY}
     volumes:
