@@ -23,9 +23,12 @@
 
     $("hr+hr").remove(); // Remove duplicated dividers
 
-    let content = $('.post-content-data>hr').first().prevAll();
-    let container = $('<div class="question">').append(content.get().reverse());
-    $('.post-content-data').prepend(container);
+    $('.post-content-data').each(function () {
+        let $this = $(this);
+        let $content = $this.find('>hr').first().prevAll();
+        let $container = $('<div class="question">').append($content.get().reverse());
+        $this.prepend($container);
+    });
 
     // $('.post-content>p:first-child').toggleClass('question', true);
     // $('.post-content>p:first-child').nextUntil('hr').toggleClass('question', true);
