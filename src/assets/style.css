@@ -542,7 +542,7 @@ form .checkbox > .input:focus, form textarea:focus, form .dropdown.active, form 
 
 .contributors a, .about a {
     text-decoration: underline;
-    text-decoration-color: #2F80ED;
+    text-decoration-color: #2F80ED !important;
 }
 
 .contributors {
@@ -572,15 +572,15 @@ form .checkbox > .input:focus, form textarea:focus, form .dropdown.active, form 
 .contributor > img {
     position: absolute;
     left: 5%;
-    width: 80px;
+    width: 70px;
 
     border-radius: 100%;
-    box-shadow: 3px 5px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.16);
 }
 
 .contributor > .content {
     position: absolute;
-    left: calc(5% + 80px + 8%);
+    left: calc(5% + 70px + 8%);
     right: 10%;
 }
 

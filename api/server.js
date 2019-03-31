@@ -78,7 +78,7 @@ const create_question = function (question, tags, slug, contributors, response) 
             authors: contributors,
             mobiledoc: JSON.stringify(converter.toMobiledoc('<b>' + escape(question).split("\r\n").join("<br>") + '</b> <hr>'))
         }).then(function (data) {
-            console.log(data);
+            console.log("Post created: " + slug);
             response.statusCode = 200;
             response.send(slug.toLowerCase());
         }).catch(function (err) {
