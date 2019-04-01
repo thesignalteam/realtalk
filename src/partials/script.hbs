@@ -55,7 +55,7 @@
 
             let post_date = new Sugar.Date(Sugar.Date.create(data[1].trim()));
             let date = $('<div class="date">').html(
-                    post_date.format('{h}:{m} {TT}')
+                    post_date.format('%X')
                     + '<br>' +
                     post_date.format('{Weekday}, {Mon} {date}, {year}')
             );

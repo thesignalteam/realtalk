@@ -5,10 +5,12 @@ const escape = require('escape-html');
 const admin = require('@tryghost/admin-api');
 const converter = require('@tryghost/html-to-mobiledoc');
 const grecaptcha = require('grecaptcha');
+const jimp = require('jimp');
+const fs = require('fs');
 
 const app = express();
 
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser());
 
 // Outgoing APIs
 const captcha = process.env.RECAPTCHA === "on" ? new grecaptcha(process.env.RECAPTCHA_KEY) : undefined;
@@ -26,6 +28,71 @@ app.get('/', (request, response) => response.send('Hello World'));
 
 app.get('/api', function (request, response) {
     response.send("Oh look! You found the API.");
+});
+
+let update_og_image = function (request, response, retries) {
+    console.log(request.body);
+
+    if (request.body.post.current.published_at === null) {
+        // Post not published yet
+        return;
+    }
+
+    if ('feature_image' in request.body.post.previous || retries > 3) {
+        // Avoid circular requests
+        return;
+    }
+
+    let slug = request.body.post.current.slug;
+    let date = new Date(new Date(request.body.post.current.updated_at) + 1 * 1000).toISOString();
+    // Offset by 10 seconds to avoid race condition
+
+    let img_path = "./cache/" + slug + "." + date + ".png";
+
+    jimp.read('./fonts/logo.png', function (err, logo) {
+        let image = new jimp(1200, 630, 0xffffffff, (err, image) => {
+            jimp.loadFont("./fonts/font.fnt").then(font => {
+                image.blit(logo, 40, 30);
+
+                image.print(
+                    font,
+                    280, 60,
+                    request.body.post.current.html.split("<hr>")[0].replace(/(<([^>]+)>)/ig, ""),
+                    860
+                );
+
+                image.write(img_path, function (err) {
+                    ghost.images
+                        .upload({file: img_path})
+                        .then(function (data) {
+                            console.log(data);
+
+                            ghost.posts
+                                .edit({
+                                    id: request.body.post.current.id,
+                                    feature_image: data.url,
+                                    updated_at: date
+                                })
+                                .then(function (data) {
+                                    console.log(data);
+                                })
+                                .catch(function (err) {
+                                    setTimeout(update_og_image, 5 * 1000 * (retries + 1), request, response, retries + 1);
+                                });
+                        })
+                        .catch(function (err) {
+                        });
+                });
+            });
+        }); // Facebook OG size: 1200 x 630
+    });
+};
+
+app.post('/api/webhook/updated', function (req, res) {
+    update_og_image(req, res, 0);
+
+    res.status(200);
+    res.send("gotchu");
 });
 
 const check_slug = function (question, tags, response) {
