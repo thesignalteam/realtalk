@@ -3,7 +3,7 @@
 {{> info-card-secondary}}
 
 {{#post}}
-    <article class="post-content {{post_class}} {{#unless feature_image}}no-image{{/unless}}">
+    <article class="post-content {{post_class}} no-image">
 
         <!--<header class="post-content-header">-->
         <!--<h1 class="post-content-title">{{title}}</h1>-->
@@ -31,12 +31,6 @@
             </div>
             <div class="ui one wide column"></div>
         </div>
-
-        {{#if feature_image}}
-            <div class="post-content-image">
-                <img class="kg-image" src="{{feature_image}}" alt="{{title}}"/>
-            </div>
-        {{/if}}
 
         <div class="ui stackable grid post-card">
             <div class="questions ui two wide column post-date-preview left">
