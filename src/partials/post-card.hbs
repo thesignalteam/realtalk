@@ -1,16 +1,3 @@
-{{!--
-Re-usable card for linking to posts
---}}
-
-<!--<article class="post-card {{post_class}} {{#if feature_image}}with-image" style="background-image: url({{img_url
-        feature_image size="l"}}){{else}}no-image{{/if}}">-->
-<!--<a class="post-card-link" href="{{url}}">-->
-<!--<div class="post-card-content">-->
-<!--<h2 class="post-card-title">{{date published_at format="LT"}}</h2>-->
-<!--</div>-->
-<!--</a>-->
-<!--</article>-->
-
 <div class="ui relaxed stackable grid post-card">
     <div class="two wide computer tablet only column post-date-preview left">
         <div class="primary">  {{date published_at format="MMM D"}}</div>
@@ -21,9 +8,9 @@ Re-usable card for linking to posts
         <span class="secondary"> {{date published_at format="LT"}} </span>
     </div>
 
-    <a class="ten wide column post-content post-content-data" href="{{url}}">
+    <div class="ten wide column post-content post-content-data" data-url="{{url}}">
         {{content}}
-    </a>
+    </div>
 
     <div class="four wide column post-meta">
         <a href='https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}' target="_blank">

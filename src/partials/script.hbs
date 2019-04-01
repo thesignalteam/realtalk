@@ -25,6 +25,11 @@
 
     $('.post-content-data').each(function () {
         let $this = $(this);
+
+        $this.click(function () {
+            window.location.href = $this.data('url');
+        });
+
         let $content = $this.find('>hr').first().prevAll();
         let $container = $('<div class="question">').append($content.get().reverse());
         $this.prepend($container);
@@ -36,7 +41,7 @@
     $('.post-content-data hr').each(function () {
         try {
             let blockquote = $(this).nextAll('blockquote').first();
-            let content = blockquote.prevUntil('hr');
+            let content = $(blockquote.prevUntil('hr').get().reverse());
 
             let data = [
                 blockquote.text().substr(0, blockquote.text().indexOf(',')),

@@ -320,6 +320,15 @@ p {
 
 }
 
+.post-content-data {
+    cursor: pointer;
+}
+
+.post-content-data a {
+    text-decoration: underline;
+    text-decoration-color: #2F80ED !important;
+}
+
 .post-content hr, .post-content blockquote {
     display: none;
 }
