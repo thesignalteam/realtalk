@@ -30,7 +30,7 @@
     {{#post}}
         <meta property="og:site_name" content="RealTalk Penn"/>
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="RealTalk Penn"/>
+        <meta property="og:title" content="RealTalk Penn - Question"/>
         <meta property="og:url" content="{{url}}"/>
         <meta property="og:description" content="View more on realtalkpenn.com"/>
 
@@ -39,10 +39,11 @@
         <meta property="twitter:url" content="{{url}}"/>
         <meta name="twitter:site" content="@tryghost"/>
 
-        <title>RealTalk Penn</title>
+        <title>RealTalk Penn - Question</title>
     {{/post}}
-
-    <title>{{meta_title}}</title>
+    {{^post}}
+        <title>{{meta_title}}</title>
+    {{/post}}
 
 </head>
 <body class="{{body_class}}">
