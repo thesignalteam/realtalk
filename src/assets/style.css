@@ -40,9 +40,10 @@ body {
 
 @media only screen and (max-width: calc(480px)) {
     body {
-        zoom: 0.85;
-        -moz-transform: scale(0.85);
-        -moz-transform-origin: 0 0;
+        margin-left: -4%;
+        margin-right: -2%;
+
+        font-size: 80%;
     }
 }
 
@@ -61,7 +62,7 @@ img {
     color: #999999;
     font-weight: bold;
 
-    font-size: 12px;
+    font-size: 1em;
     line-height: 130%;
 
     margin: 20px 10%;
@@ -582,7 +583,7 @@ form .checkbox > .input:focus, form textarea:focus, form .dropdown.active, form 
 }
 
 .contributor {
-    margin-bottom: 80px !important;
+    margin-bottom: 50px !important;
 }
 
 .contributor .image {
@@ -609,7 +610,7 @@ form .checkbox > .input:focus, form textarea:focus, form .dropdown.active, form 
 }
 
 .contributor .tagline {
-    margin-top: 12px;
+    margin-top: 8px;
 
     font-family: "Cerebri Sans", Avenir, sans-serif;
     font-weight: bold;
