@@ -26,7 +26,8 @@
     $('.post-content-data').each(function () {
         let $this = $(this);
 
-        $this.click(function () {
+        // If we're in list view, not post view
+        $this.filter(':not(.post-content-text)').click(function () {
             window.location.href = $this.data('url');
         });
 

@@ -16,6 +16,15 @@
 
 /* Global */
 
+::selection {
+    color: white;
+    background: #2F80ED; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+    color: white;
+    background: #2F80ED; /* Gecko Browsers */
+}
+
 *, footer {
     font-family: "HK Concentrate Pro", sans-serif;
 }
@@ -320,7 +329,7 @@ p {
 
 }
 
-.post-content-data {
+.post-content-data:not(.post-content-text) {
     cursor: pointer;
 }
 
