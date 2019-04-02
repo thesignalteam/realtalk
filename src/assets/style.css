@@ -622,7 +622,7 @@ form .checkbox > .input:focus, form textarea:focus, form .dropdown.active, form 
 }
 
 .contributor .bio {
-    margin-top: 20px;
+    margin-top: 18px;
 
     font-size: 16px;
     line-height: 140%;
