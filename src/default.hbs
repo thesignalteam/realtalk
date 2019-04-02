@@ -23,28 +23,43 @@
 
     <link rel="shortcut icon" href="/favicon.png" type="image/png"/>
     <meta name="referrer" content="no-referrer-when-downgrade"/>
-    <link rel="alternate" type="application/rss+xml" title="RealTalk Penn" href="http://local.realtalkpenn.com/rss/"/>
-
-    {{ghost_head}}
+    <link rel="alternate" type="application/rss+xml" title="RealTalk Penn" href="/rss/"/>
 
     {{#is "post"}}
         {{#post}}
             <meta property="og:site_name" content="RealTalk Penn"/>
             <meta property="og:type" content="article"/>
+            <meta property="og:image" content="{{feature_image}}">
             <meta property="og:title" content="RealTalk Penn - Question"/>
-            <meta property="og:url" content="{{url}}"/>
-            <meta property="og:description" content="View more on realtalkpenn.com"/>
+            <meta property="og:url" content="{{url absolute="true"}}"/>
+            <meta property="og:description" content="View full answer on realtalkpenn.com"/>
 
             <meta name="twitter:card" content="summary"/>
-            <meta name="twitter:title" content="RealTalk Penn"/>
-            <meta property="twitter:url" content="{{url}}"/>
-            <meta name="twitter:site" content="@tryghost"/>
+            <meta name="twitter:title" content="RealTalk Penn - Question"/>
+            <meta property="twitter:url" content="{{url absolute="true"}}"/>
+            <meta name="twitter:site" content="@realtalkpenn"/>
 
             <title>RealTalk Penn - Question</title>
         {{/post}}
     {{/is}}
 
     {{^is "post"}}
+        <meta property="og:site_name" content="RealTalk Penn"/>
+        <meta property="og:type" content="article"/>
+
+        {{#post}}
+            <meta property="og:image" content="{{feature_image}}">
+            <meta property="og:description" content="{{excerpt}}"/>
+        {{/post}}
+
+        <meta property="og:title" content="{{meta_title}}"/>
+        <meta property="og:url" content="{{url absolute="true"}}"/>
+
+        <meta name="twitter:card" content="summary"/>
+        <meta name="twitter:title" content="{{meta_title}}"/>
+        <meta property="twitter:url" content="{{url absolute="true"}}"/>
+        <meta name="twitter:site" content="@realtalkpenn"/>
+
         <title>{{meta_title}}</title>
     {{/is}}
 
