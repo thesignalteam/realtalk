@@ -573,36 +573,22 @@ form .checkbox > .input:focus, form textarea:focus, form .dropdown.active, form 
 }
 
 .contributor {
-    position: relative;
-
-    height: 320px;
+    margin-bottom: 80px !important;
 }
 
-@media only screen and (max-width: 1023px) {
-    .contributor {
-        height: 350px;
-    }
+.contributor .image {
+    text-align: center;
 }
 
-@media only screen and (max-width: 767px) {
-    .contributor {
-        height: 300px;
-    }
-}
+.contributor img {
+    display: inline-block;
 
-.contributor > img {
-    position: absolute;
-    left: 5%;
-    width: 70px;
+    width: 100%;
+    height: auto;
+    max-width: 90px !important;
 
     border-radius: 100%;
     box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.12);
-}
-
-.contributor > .content {
-    position: absolute;
-    left: calc(5% + 70px + 8%);
-    right: 10%;
 }
 
 .contributor .name {

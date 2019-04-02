@@ -27,23 +27,26 @@
 
     {{ghost_head}}
 
-    {{#post}}
-        <meta property="og:site_name" content="RealTalk Penn"/>
-        <meta property="og:type" content="article"/>
-        <meta property="og:title" content="RealTalk Penn - Question"/>
-        <meta property="og:url" content="{{url}}"/>
-        <meta property="og:description" content="View more on realtalkpenn.com"/>
+    {{#is "post"}}
+        {{#post}}
+            <meta property="og:site_name" content="RealTalk Penn"/>
+            <meta property="og:type" content="article"/>
+            <meta property="og:title" content="RealTalk Penn - Question"/>
+            <meta property="og:url" content="{{url}}"/>
+            <meta property="og:description" content="View more on realtalkpenn.com"/>
 
-        <meta name="twitter:card" content="summary"/>
-        <meta name="twitter:title" content="RealTalk Penn"/>
-        <meta property="twitter:url" content="{{url}}"/>
-        <meta name="twitter:site" content="@tryghost"/>
+            <meta name="twitter:card" content="summary"/>
+            <meta name="twitter:title" content="RealTalk Penn"/>
+            <meta property="twitter:url" content="{{url}}"/>
+            <meta name="twitter:site" content="@tryghost"/>
 
-        <title>RealTalk Penn - Question</title>
-    {{/post}}
-    {{^post}}
+            <title>RealTalk Penn - Question</title>
+        {{/post}}
+    {{/is}}
+
+    {{^is "post"}}
         <title>{{meta_title}}</title>
-    {{/post}}
+    {{/is}}
 
 </head>
 <body class="{{body_class}}">

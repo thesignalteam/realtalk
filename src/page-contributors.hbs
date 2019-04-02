@@ -10,12 +10,16 @@
 
             <div class="ui relaxed stackable two column grid">
                 {{#foreach authors}}
-                    <div class="column contributor ui grid">
-                        <img src="{{profile_image}}">
-                        <div class="content">
-                            <div class="name">{{name}}</div>
-                            <div class="tagline">{{location}}</div>
-                            <div class="bio">{{bio}}</div>
+                    <div class="column">
+                        <div class="ui grid contributor">
+                            <div class="five wide column image">
+                                <img src="{{profile_image}}">
+                            </div>
+                            <div class="eleven wide column content">
+                                <div class="name">{{name}}</div>
+                                <div class="tagline">{{location}}</div>
+                                <div class="bio">{{bio}}</div>
+                            </div>
                         </div>
                     </div>
                 {{/foreach}}
