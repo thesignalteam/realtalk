@@ -30,7 +30,11 @@ app.get('/api', function (request, response) {
     response.send("Oh look! You found the API.");
 });
 
-let update_og_image = function (request, response, retries) {
+let remove_html = function (string) {
+    return string.replace(/(<([^>]+)>)/ig, "");
+};
+
+let update_og_image = async function (request, response, retries) {
     console.log(request.body);
 
     if (request.body.post.current.published_at === null) {
@@ -48,44 +52,67 @@ let update_og_image = function (request, response, retries) {
     // Offset by 10 seconds to avoid race condition
 
     let img_path = "./cache/" + slug + "." + date + ".png";
+    let logo = await jimp.read("./fonts/logo.png");
+    let text_Q = await jimp.read("./fonts/Q.png");
+    let text_A = await jimp.read("./fonts/A.png");
 
-    jimp.read('./fonts/logo.png', function (err, logo) {
-        let image = new jimp(1200, 630, 0xffffffff, (err, image) => {
-            jimp.loadFont("./fonts/font.fnt").then(font => {
-                image.blit(logo, 40, 30);
+    let html_blocks = request.body.post.current.html.split("<hr>");
+    let text_question = remove_html(html_blocks[0]);
+    let text_answer = html_blocks.length > 1 ? remove_html(html_blocks[1].split("<blockquote>")[0]): "";
 
-                image.print(
-                    font,
-                    280, 60,
-                    request.body.post.current.html.split("<hr>")[0].replace(/(<([^>]+)>)/ig, ""),
-                    860
-                );
+    let width = 860;
+    let spacing = "     ";
 
-                image.write(img_path, function (err) {
-                    ghost.images
-                        .upload({file: img_path})
-                        .then(function (data) {
-                            console.log(data);
+    console.log(text_question, text_answer);
 
-                            ghost.posts
-                                .edit({
-                                    id: request.body.post.current.id,
-                                    feature_image: data.url,
-                                    updated_at: date
-                                })
-                                .then(function (data) {
-                                    console.log(data);
-                                })
-                                .catch(function (err) {
-                                    setTimeout(update_og_image, 5 * 1000 * (retries + 1), request, response, retries + 1);
-                                });
-                        })
-                        .catch(function (err) {
-                        });
-                });
+    let image = new jimp(1200, 630, 0xffffffff, (err, image) => {
+        jimp.loadFont("./fonts/font.fnt").then(font => {
+            let height = 60;
+
+            image.blit(logo, 40, 30);
+            image.blit(text_Q, 280, height + 13);
+
+            image.print(
+                font,
+                280, height,
+                spacing + text_question,
+                width
+            );
+
+            height += jimp.measureTextHeight(font, spacing + text_question, width) + 30;
+            image.blit(text_A, 280, height + 15);
+
+            image.print(
+                font,
+                280, height,
+                spacing + text_answer,
+                width
+            );
+
+            image.write(img_path, function (err) {
+                ghost.images
+                    .upload({file: img_path})
+                    .then(function (data) {
+                        console.log(data);
+
+                        ghost.posts
+                            .edit({
+                                id: request.body.post.current.id,
+                                feature_image: data.url,
+                                updated_at: date
+                            })
+                            .then(function (data) {
+                                console.log(data);
+                            })
+                            .catch(function (err) {
+                                setTimeout(update_og_image, 5 * 1000 * (retries + 1), request, response, retries + 1);
+                            });
+                    })
+                    .catch(function (err) {
+                    });
             });
-        }); // Facebook OG size: 1200 x 630
-    });
+        });
+    }); // Facebook OG size: 1200 x 630
 };
 
 app.post('/api/webhook/updated', function (req, res) {

@@ -575,7 +575,19 @@ form .checkbox > .input:focus, form textarea:focus, form .dropdown.active, form 
 .contributor {
     position: relative;
 
-    height: 200px;
+    height: 320px;
+}
+
+@media only screen and (max-width: 1023px) {
+    .contributor {
+        height: 350px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .contributor {
+        height: 300px;
+    }
 }
 
 .contributor > img {
@@ -584,7 +596,7 @@ form .checkbox > .input:focus, form textarea:focus, form .dropdown.active, form 
     width: 70px;
 
     border-radius: 100%;
-    box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.16);
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.12);
 }
 
 .contributor > .content {
@@ -598,6 +610,7 @@ form .checkbox > .input:focus, form textarea:focus, form .dropdown.active, form 
 
     font-family: "Cerebri Sans", Avenir, sans-serif;
     font-size: 24px;
+    line-height: 140%;
 }
 
 .contributor .tagline {
