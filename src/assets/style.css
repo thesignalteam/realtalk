@@ -326,10 +326,6 @@ p {
     padding-bottom: 40px !important;
 }
 
-.post-date-preview .time {
-
-}
-
 .post-content-data:not(.post-content-text) {
     cursor: pointer;
 }
@@ -549,7 +545,8 @@ form .checkbox > .input:focus, form textarea:focus, form .dropdown.active, form 
 .error-container .title {
     font-family: "Cerebri Sans", Avenir, sans-serif;
     font-size: 30px;
-    line-height: 100px;
+    line-height: 120%;
+    margin-bottom: 60px;
 }
 
 .error-container .description, .success .message, .error .message {
