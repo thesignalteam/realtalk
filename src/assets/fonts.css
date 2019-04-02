@@ -33,3 +33,12 @@
     url('./fonts/cerebrisans-bold.woff') format('woff'),
     url('./fonts/cerebrisans-bold.ttf') format('truetype');
 }
+
+/*@font-face {*/
+    /*font-family: 'Cerebri Sans';*/
+    /*font-weight: 900;*/
+
+    /*src: url('./fonts/cerebrisans-extrabold.woff2') format('woff2'),*/
+    /*url('./fonts/cerebrisans-extrabold.woff') format('woff'),*/
+    /*url('./fonts/cerebrisans-extrabold.ttf') format('truetype');*/
+/*}*/

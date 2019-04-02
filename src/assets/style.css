@@ -131,7 +131,7 @@ p {
 
 .btn {
     font-family: "Cerebri Sans", Avenir, sans-serif;
-    font-weight: bold;
+    font-weight: 700;
     font-size: 12.5px;
 
     background-blend-mode: screen;
@@ -545,7 +545,7 @@ form .checkbox > .input:focus, form textarea:focus, form .dropdown.active, form 
 .error-container .title {
     font-family: "Cerebri Sans", Avenir, sans-serif;
     font-size: 30px;
-    line-height: 120%;
+    line-height: 140%;
     margin-bottom: 60px;
 }
 
@@ -658,4 +658,34 @@ form .checkbox > .input:focus, form textarea:focus, form .dropdown.active, form 
 
 .logo {
     min-width: 100px;
+}
+
+.subscribe h1 {
+    font-size: 24px;
+}
+
+.subscribe form {
+    margin-top: 60px;
+
+    border: none;
+    background-color: #ECF4FF;
+}
+
+.subscribe form .gh-input {
+    font-size: 16px;
+    text-align: center;
+}
+
+.subscribe form button {
+    background-color: #2F80ED;
+}
+
+.subscribe form button > * {
+    text-shadow: none;
+    color: white;
+
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 13px;
+    vertical-align: middle;
 }
