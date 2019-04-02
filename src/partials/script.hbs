@@ -21,6 +21,8 @@
         $(".error-container-404 .description").text("Bookmark this page and come back later.");
     }
 
+    $(".post-content-data a").attr('target', '_blank');
+
     $("hr+hr").remove(); // Remove duplicated dividers
 
     $('.post-content-data').each(function () {
