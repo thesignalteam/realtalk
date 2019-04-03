@@ -299,7 +299,21 @@ p {
 }
 
 .header .search-btn {
-    float: right;
+    display: block;
+    text-align: center;
+    vertical-align: center;
+}
+
+.header .search-btn > * {
+    display: inline-block;
+}
+
+.header .search-btn .label {
+    font-family: "Cerebri Sans", Avenir, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+
+    margin-left: 5px;
 }
 
 .header .search-btn img {
