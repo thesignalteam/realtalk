@@ -1,6 +1,5 @@
-
 <script>
-    var getUrlParameter = function getUrlParameter(sParam) {
+    let getUrlParameter = function getUrlParameter(sParam) {
         var sPageURL = window.location.search.substring(1),
                 sURLVariables = sPageURL.split('&'),
                 sParameterName,
@@ -15,17 +14,7 @@
         }
     };
 
-    if (getUrlParameter("link") === "preview") {
-        $(".error-container-404 .icon").text("🥥");
-        $(".error-container-404 .title").text("We're working on it");
-        $(".error-container-404 .description").text("Bookmark this page and come back later.");
-    }
-
-    $(".post-content-data a").attr('target', '_blank');
-
-    $("hr+hr").remove(); // Remove duplicated dividers
-
-    $('.post-content-data').each(function () {
+    let parse_question = function () {
         let $this = $(this);
 
         // If we're in list view, not post view
@@ -36,13 +25,12 @@
         let $content = $this.find('>hr').first().prevAll();
         let $container = $('<div class="question">').append($content.get().reverse());
         $this.prepend($container);
-    });
+    };
 
-    // $('.post-content>p:first-child').toggleClass('question', true);
-    // $('.post-content>p:first-child').nextUntil('hr').toggleClass('question', true);
-
-    $('.post-content-data hr').each(function () {
+    let parse_answers = function () {
         try {
+            console.log(this);
+
             let blockquote = $(this).nextAll('blockquote').first();
             let content = $(blockquote.prevUntil('hr').get().reverse());
 
@@ -71,7 +59,20 @@
         } catch (e) {
             console.warn(e);
         }
-    });
+    };
+
+    if (getUrlParameter("link") === "preview") {
+        $(".error-container-404 .icon").text("🥥");
+        $(".error-container-404 .title").text("We're working on it");
+        $(".error-container-404 .description").text("Bookmark this page and come back later.");
+    }
+
+    $(".post-content-data a").attr('target', '_blank');
+
+    $("hr+hr").remove(); // Remove duplicated dividers
+
+    $('.post-content-data').each(parse_question);
+    $('.post-content-data hr').each(parse_answers);
 
     $('.tag').each(function () {
         let $tag = $(this);

@@ -1,0 +1,89 @@
+{{!< default}}
+
+{{> info-card-secondary}}
+
+<div class="ui centered relaxed grid search">
+    <div class="ui fourteen wide computer fourteen wide tablet fifteen wide mobile column">
+        <h1>Search<span class="primary subscript"> beta</span></h1>
+
+        <div id="searchbox"></div>
+        <div id="hits"></div>
+
+        <script>
+            String.prototype.replaceAll = function(search, replacement) {
+                var target = this;
+                return target.split(search).join(replacement);
+            };
+
+            const search = instantsearch({
+                indexName: 'POST',
+                appId: 'F62UHZKCZ9',
+                apiKey: 'c6559877fa1f29ed001e6e99c38008d9',
+                searchParameters: {
+                    hitsPerPage: 10,
+                    distinct: true,
+                },
+                searchFunction: function(helper) {
+                    if (helper.state.query.length < 2) {
+                        return;
+                    }
+
+                    helper.search();
+                },
+                routing: true,
+            });
+
+            search.addWidget(
+                    instantsearch.widgets.searchBox({
+                        container: '#searchbox',
+                        searchOnEnterKeyPressOnly: true,
+                        autofocus: true,
+                        showSubmit: true,
+                        placeholder: 'What are you looking for?'
+                    })
+            );
+
+            search.addWidget(
+                    instantsearch.widgets.hits({
+                        container: '#hits',
+                        transformItems: function(data) {
+                            return data.map(function (result) {
+                                console.log(result);
+
+                                result._highlightResult.plaintext.value =
+                                        result._highlightResult.plaintext.value
+                                        .replaceAll("--------------------------------------------------------------------------------", "—");
+                                result.updated_at = new Sugar.Date(result.updated_at).medium();
+
+                                let $post = $('<div class="post-content post-content-data"></div>').html(result._highlightResult.html.value);
+                                $post.each(parse_question);
+                                $post.find('hr').each(parse_answers);
+
+                                result._highlightResult.html.value = $post.get()[0].outerHTML;
+
+                                console.log(result._highlightResult.html.value);
+;
+                                return result;
+                            });
+                        },
+                        templates: {
+                            empty: `<div class="primary result">No results</div>`,
+                            item: `
+                                <div class="result" data-url="\{{url}}" onclick="anchor(this)">
+                                    <div class="primary">Post on <span class="date">\{{updated_at}}</span></div>
+                                    \{{{_highlightResult.html.value}}}
+                                </div>
+                            `
+                        },
+                    })
+            );
+
+            let anchor = function(div) {
+                window.location.href = $(div).data('url');
+            };
+
+            search.start();
+        </script>
+
+    </div>
+</div>

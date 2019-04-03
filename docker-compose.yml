@@ -31,6 +31,7 @@ services:
       - ./static/semantic/dist:/var/lib/ghost/content/themes/thesignal-realtalk/assets/semantic/
       - ./static/jquery/dist:/var/lib/ghost/content/themes/thesignal-realtalk/assets/jquery/
       - ./static/sugar/dist:/var/lib/ghost/content/themes/thesignal-realtalk/assets/sugar/
+      - ./static/instantsearch/dist:/var/lib/ghost/content/themes/thesignal-realtalk/assets/instantsearch/
       - ./static/fonts:/var/lib/ghost/content/themes/thesignal-realtalk/assets/fonts
     restart: always
     ports:

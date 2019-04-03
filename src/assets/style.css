@@ -20,12 +20,13 @@
     color: white;
     background: #2F80ED; /* WebKit/Blink Browsers */
 }
+
 ::-moz-selection {
     color: white;
     background: #2F80ED; /* Gecko Browsers */
 }
 
-*, footer {
+*, footer, input {
     font-family: "HK Concentrate Pro", sans-serif;
 }
 
@@ -249,7 +250,7 @@ p {
     margin-bottom: 20px;
 
     position: absolute;
-    width: 95%;
+    width: 96%;
     height: 30px;
 
     overflow-x: hidden;
@@ -295,6 +296,15 @@ p {
 
 .segment.visible {
     display: initial;
+}
+
+.header .search-btn {
+    float: right;
+}
+
+.header .search-btn img {
+    margin-top: 2px;
+    height: 20px;
 }
 
 .step {
@@ -644,16 +654,80 @@ form .checkbox > .input:focus, form textarea:focus, form .dropdown.active, form 
     line-height: 150%;
 }
 
-@media only screen and (max-width: 630px) {
-  .questions {
-    margin-right: 35px;
-  }
+.search h1:nth-of-type(1)::before {
+    /*Search*/
+    content: "\f677";
+}
 
-  .info {
-    margin-top: 0!important;
-    margin-bottom: 0!important;
-    padding-bottom: 20px !important;
-  }
+.search .ais-search-box input {
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+
+    font-size: 24px;
+
+    border-bottom: solid 2px #2F80ED;
+
+    margin-top: -20px;
+    padding-left: 0;
+}
+
+.search .ais-search-box:after {
+    line-height: 250%;
+
+    content: "Press enter to search";
+    font-family: "Cerebri Sans", Avenir, sans-serif;
+    font-size: 16px;
+
+
+    color: #2F80ED;
+}
+
+.search .ais-search-box input:focus {
+    box-shadow: none;
+}
+
+.search .ais-search-box :not(input) {
+    display: none;
+}
+
+.search .result {
+    display: block;
+    margin-top: 80px;
+}
+
+.search .result em {
+    background-color: #ECF4FF;
+    font-weight: bold;
+    font-style: normal;
+
+    border: 1px #2F80ED solid;
+    margin: -2px;
+    padding: 1px;
+}
+
+.search .result .primary {
+    margin-bottom: 10px;
+
+    font-weight: bold;
+    font-family: "Cerebri Sans", Avenir, sans-serif;
+    text-transform: uppercase;
+}
+
+.search #hits {
+    margin-bottom: 200px;
+}
+
+@media only screen and (max-width: 630px) {
+    .questions {
+        margin-right: 35px;
+    }
+
+    .info {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        padding-bottom: 20px !important;
+    }
 }
 
 .logo {
