@@ -690,6 +690,10 @@ form .checkbox > .input:focus, form textarea:focus, form .dropdown.active, form 
     padding-left: 0;
 }
 
+.search .algolia {
+    float: right;
+}
+
 .search .ais-search-box:after {
     line-height: 250%;
 
