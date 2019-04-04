@@ -48,11 +48,6 @@
                         container: '#hits',
                         transformItems: function(data) {
                             return data.map(function (result) {
-                                console.log(result);
-
-                                result._highlightResult.plaintext.value =
-                                        result._highlightResult.plaintext.value
-                                        .replaceAll("--------------------------------------------------------------------------------", "—");
                                 result.updated_at = new Sugar.Date(result.updated_at).medium();
 
                                 let $post = $('<div class="post-content post-content-data"></div>').html(result._highlightResult.html.value);
