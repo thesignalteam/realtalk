@@ -47,6 +47,10 @@
             <meta property="og:image" content="{{feature_image}}">
             <meta property="og:description" content="{{excerpt}}"/>
         {{/post}}
+        {{#is "index"}}
+            <meta property="og:image" content="{{@site.cover_image}}">
+            <meta property="og:description" content="{{@site.description}}"/>
+        {{/is}}
 
         <meta property="og:title" content="{{meta_title}}"/>
         <meta property="og:url" content="{{url absolute="true"}}"/>
