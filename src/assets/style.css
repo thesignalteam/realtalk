@@ -16,6 +16,10 @@
 
 /* Global */
 
+* {
+    -webkit-overflow-scrolling: touch;
+}
+
 ::selection {
     color: white;
     background: #2F80ED; /* WebKit/Blink Browsers */
