@@ -674,7 +674,7 @@ form .checkbox > .input:focus, form textarea:focus, form .dropdown.active, form 
 
 .search h1:nth-of-type(1)::before {
     /*Search*/
-    content: "\f677";
+    content: "\f610";
 }
 
 .search .ais-search-box input {
@@ -692,6 +692,8 @@ form .checkbox > .input:focus, form textarea:focus, form .dropdown.active, form 
 
 .search .algolia {
     float: right;
+    width: 120px;
+    margin-top: -28px;
 }
 
 .search .ais-search-box:after {
