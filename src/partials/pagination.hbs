@@ -1,9 +1,9 @@
 <nav class="pagination" role="navigation">
     <a {{#if prev}}href="{{page_url prev}}"{{/if}}>
-        <img src="/assets/svg/arrow-left.svg" class="arrow {{^if prev}}disabled{{/if}}">
+        <img src="{{asset 'svg/arrow-left.svg'}}" class="arrow {{^if prev}}disabled{{/if}}">
     </a>
     <span class="page-number">Page {{page}} of {{pages}}</span>
     <a {{#if next}}href="{{page_url next}}"{{/if}}>
-        <img src="/assets/svg/arrow-right.svg" class="arrow {{^if next}}disabled{{/if}}">
+        <img src="{{asset 'svg/arrow-right.svg'}}" class="arrow {{^if next}}disabled{{/if}}">
     </a>
 </nav>
