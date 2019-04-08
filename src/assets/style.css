@@ -629,7 +629,7 @@ form .checkbox > .input:focus, form textarea:focus, form .dropdown.active, form 
 
 .contributors p {
     font-size: 18px;
-    line-height: 30px;
+    line-height: 160%;
 
     margin-top: -2em;
     margin-bottom: 6em;
@@ -698,7 +698,7 @@ form .checkbox > .input:focus, form textarea:focus, form .dropdown.active, form 
 
 .about p {
     font-size: 18px;
-    line-height: 150%;
+    line-height: 160%;
 }
 
 .about .team a {
@@ -710,7 +710,7 @@ form .checkbox > .input:focus, form textarea:focus, form .dropdown.active, form 
     color: #2F80ED;
 }
 
-.about p {
+.about .team {
     line-height: 30px;
 }
 
