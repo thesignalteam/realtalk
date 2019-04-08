@@ -629,7 +629,7 @@ form .checkbox > .input:focus, form textarea:focus, form .dropdown.active, form 
 
 .contributors p {
     font-size: 18px;
-    line-height: 150%;
+    line-height: 30px;
 
     margin-top: -2em;
     margin-bottom: 6em;
