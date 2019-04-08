@@ -9,9 +9,37 @@
     src: url(./fonts/fa-light-300.eot?#iefix) format("embedded-opentype"), url(./fonts/fa-light-300.woff2) format("woff2"), url(./fonts/fa-light-300.woff) format("woff"), url(./fonts/fa-light-300.ttf) format("truetype"), url(./fonts/fa-light-300.svg#fontawesome) format("svg")
 }
 
+@font-face {
+    font-family: "Font Awesome 5 Pro";
+    font-style: normal;
+    font-weight: 400;
+    font-display: auto;
+    src: url(./fonts/fa-regular-400.eot);
+    src: url(./fonts/fa-regular-400.eot?#iefix) format("embedded-opentype"), url(./fonts/fa-regular-400.woff2) format("woff2"), url(./fonts/fa-regular-400.woff) format("woff"), url(./fonts/fa-regular-400.ttf) format("truetype"), url(./fonts/fa-regular-400.svg#fontawesome) format("svg")
+}
+
+@font-face {
+    font-family: 'Font Awesome 5 Brands';
+    font-style: normal;
+    font-weight: 400;
+    font-display: auto;
+    src: url("./fonts/fa-brands-400.eot");
+    src: url("./fonts/fa-brands-400.eot?#iefix") format("embedded-opentype"), url("./fonts/fa-brands-400.woff2") format("woff2"), url("./fonts/fa-brands-400.woff") format("woff"), url("./fonts/fa-brands-400.ttf") format("truetype"), url("./fonts/fa-brands-400.svg#fontawesome") format("svg");
+}
+
 .fal {
     font-family: "Font Awesome 5 Pro";
     font-weight: 300
+}
+
+.far {
+    font-family: "Font Awesome 5 Pro";
+    font-weight: 400;
+}
+
+.fab {
+    font-family: "Font Awesome 5 Brands";
+    font-weight: 400;
 }
 
 /* Global */
@@ -611,6 +639,7 @@ form .checkbox > .input:focus, form textarea:focus, form .dropdown.active, form 
     margin-bottom: 50px !important;
 }
 
+`
 .contributor .image {
     text-align: center;
 }
@@ -670,6 +699,29 @@ form .checkbox > .input:focus, form textarea:focus, form .dropdown.active, form 
 .about p {
     font-size: 18px;
     line-height: 150%;
+}
+
+.about .team a {
+    text-decoration: none;
+}
+
+.about .far, .about .fal, .about .fab {
+    margin-left: 3px;
+    color: #2F80ED;
+}
+
+.about p {
+    line-height: 30px;
+}
+
+.about .far {
+    line-height: 27px;
+    vertical-align: top;
+    font-size: 80%;
+}
+
+.about .fab {
+    font-size: 100%;
 }
 
 .search h1:nth-of-type(1)::before {
