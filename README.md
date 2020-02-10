@@ -1,4 +1,4 @@
-# thesignal-realtalk
+# RealTalk Penn
 
 Repository for [RealTalk Penn](https://realtalkpenn.com/about), an anonymous Q&A forum for the University of Pennsylvania
  community, inspired by the Princeton counterpart.
