@@ -12,7 +12,7 @@
     "@tryghost/html-to-mobiledoc": "^0.2.4",
     "body-parser": "^1.18.3",
     "escape-html": "^1.0.3",
-    "express": "4.16.1",
+    "express": "4.17.3",
     "grecaptcha": "^1.0.3",
     "jimp": "^0.6.1"
   }
